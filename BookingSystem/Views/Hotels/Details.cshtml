@@ -1,0 +1,134 @@
+﻿@model BookingSystem.Models.Hotel
+
+@{
+    ViewData["Title"] = "Hotel Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .details-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .details-container h4 {
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            .details-container .btn-custom {
+                margin-top: 20px;
+            }
+
+        .btn-custom a {
+            color: white; /* Font color changed to white for better contrast */
+            font-size: 1.1rem;
+        }
+
+            .btn-custom a:hover {
+                text-decoration: underline;
+            }
+
+        .hotel-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .btn-edit, .btn-back {
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        /* Custom colors for buttons */
+        .btn-edit {
+            background-color: #2575fc;
+            border-color: #2575fc;
+        }
+
+        .btn-back {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        /* Make sure the text is white for visibility */
+        .btn-edit, .btn-back {
+            color: white;
+        }
+
+            .btn-edit:hover {
+                background-color: #1d62d1;
+                border-color: #1d62d1;
+            }
+
+            .btn-back:hover {
+                background-color: #5a6268;
+                border-color: #5a6268;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container details-container">
+        <h1>Hotel Details</h1>
+        <hr />
+        <h4>Hotel Information</h4>
+
+        <!-- Display Hotel Details -->
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="@Model.ImageUrl" alt="Hotel Image" class="hotel-image" />
+            </div>
+            <div class="col-sm-8">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <i class="bi bi-house-door"></i> Hotel Name
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.HotelName)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="bi bi-geo-alt"></i> Location
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Location)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="bi bi-star"></i> Rating
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Rating)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="btn-custom text-center">
+            <a asp-action="Edit" asp-route-id="@Model?.HotelId" class="btn btn-primary btn-edit">
+                <i class="bi bi-pencil"></i> Edit Hotel
+            </a> |
+            <a asp-action="Index" class="btn btn-secondary btn-back">
+                <i class="bi bi-arrow-left-circle"></i> Back to Hotel List
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
