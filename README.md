@@ -22,6 +22,12 @@ A Hotel Management System built using **CRUD operations** in **MVC** with basic 
 
 *Home Page of the Hotel Management System*
 
+
+![image](https://github.com/user-attachments/assets/39cefa88-a162-4334-9be4-1a9eaa61cb88)
+*Hotel Page of the Hotel Management System*
+
+
+
 ![image](https://github.com/user-attachments/assets/a4c7d071-b736-4990-9bbf-96994ab52101)
 *Room Page of the Hotel Management System*
 
